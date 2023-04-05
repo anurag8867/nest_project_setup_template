@@ -1,5 +1,5 @@
 ## Installation
-# Directory Structure: [Click Here] (https://medium.com/the-crowdlinker-chronicle/best-way-to-structure-your-directory-code-nestjs-a06c7a641401)
+# Directory Structure: [Click Here](https://medium.com/the-crowdlinker-chroniclebest-way-to-structure-your-directory-code-nestjs-a06c7a641401)
 ```bash
 $ npm install
 ```
