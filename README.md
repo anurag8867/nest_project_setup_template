@@ -1,33 +1,5 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
-
+# Directory Structure: "[Click Here]""(https://medium.com/the-crowdlinker-chronicle/best-way-to-structure-your-directory-code-nestjs-a06c7a641401)"
 ```bash
 $ npm install
 ```
@@ -58,16 +30,82 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+```bash
+command for new Module:
+$ nest g resource users
+```  
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+GuideLines: (Open for inputs)
 
-## Stay in touch
+Structure:
+* controller -> service -> repo/db
+* util(At component and root level)
+* entity
+* helpers
+* dto
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Product:
+* UserService requires catService Function => UserService -> catServiceHelper -> catService(A Service should never calls its own helper)
+* A Service should not call its own Helper function
+* A helper can call its own service
+* A service can call helper from other service
+* Helper is for other service's help
+* A controller should call only its own service
 
-## License
+Node:
+* https://www.tatvasoft.com/blog/node-js-best-practices/
+* Try to use higher order function and avoid legacy for loop
+* process manager pm2
 
-Nest is [MIT licensed](LICENSE).
+Db:
+* Sequelize ORM
+* All calls to DB must hold transactions (Managed and UnManaged)
+* Controller will be the best to start a transaction
+
+Logging:
+* what to log? error, warn, info, verbose, debug
+* Controller, service and db. (Start of a function and end of a function)
+* Winston is the most popular library
+* Avoid Logging Sensitive Information
+* We may link team/slack for system crash exception
+* Automatically Log Uncaught Exceptions and Unhandled Promise Rejections
+
+Typescript:
+* Classes
+* DataType definition
+* Interfaces
+* Inheritance
+* Optional params must be the last params of functions/methods
+
+Testing:
+* Jest
+* controller, service and db layer
+* Unit test cases
+* Integration test?(Question to Anubhaw)
+
+Software Practices:
+* Try to make variables as private as possible
+* Put some common function into util folder
+* Check existence of same function before creating new function
+* Install eslint module in vs code
+* SOLID Principle
+
+Config Management:
+* Config(Module) (Easy to maintain, but compromise with security, unwanted changes may go out)
+* Secret Manager
+
+Request Validation(General Validation):
+* Class Validator
+* Sync as well async validation
+* custom validation (Decorator validation)
+
+Questions:
+* what is promise? object, associate handlers with asynchronous operation
+* difference between object and class/prototype?
+* is log async? console.log is sync.
+* is reading a file async? .readFile, if we wanna read in sync readFileSync
+* ensure all cores utilized? cluster module, even Ryan Dahl said the same thing in one of the google talk
+
+
+* Need to research in respect to nest js
+* Nest Js core module structure?
