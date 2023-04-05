@@ -1,8 +1,12 @@
 ## Installation
-# Directory Structure: [Click Here](https://medium.com/the-crowdlinker-chroniclebest-way-to-structure-your-directory-code-nestjs-a06c7a641401)
 ```bash
 $ npm install
 ```
+
+# Directory Structure: 
+* [Refer](https://medium.com/the-crowdlinker-chroniclebest-way-to-structure-your-directory-code-nestjs-a06c7a641401)
+* There may be few vacant files and flders, let them be like it, it will help us to structure
+
 
 ## Running the app
 
@@ -53,7 +57,7 @@ Product:
 * A controller should call only its own service
 
 Node:
-* https://www.tatvasoft.com/blog/node-js-best-practices/
+* [Refer](https://www.tatvasoft.com/blog/node-js-best-practices)
 * Try to use higher order function and avoid legacy for loop
 * process manager pm2
 
@@ -79,9 +83,9 @@ Typescript:
 
 Testing:
 * Jest
-* controller, service and db layer
-* Unit test cases
-* Integration test?(Question to Anubhaw)
+* controller, service and db layer(>80%)
+* Integration test[For Future]
+* Unit test cases[For Future]
 
 Software Practices:
 * Try to make variables as private as possible
@@ -105,7 +109,6 @@ Questions:
 * is log async? console.log is sync.
 * is reading a file async? .readFile, if we wanna read in sync readFileSync
 * ensure all cores utilized? cluster module, even Ryan Dahl said the same thing in one of the google talk
-
 
 * Need to research in respect to nest js
 * Nest Js core module structure?
